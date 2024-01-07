@@ -34,7 +34,7 @@ const Explore = () => {
     return (
       <TouchableOpacity
         onPress={() =>
-          router.push({pathname:"/news-detail", params:{id:item.id}})
+          router.push({pathname:"/event-detail", params:{id:item.id}})
         }
         activeOpacity={0.5}
       >
