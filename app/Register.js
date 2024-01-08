@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Image, Input, InputIcon, InputSlot, InputField, Button, ButtonText, Alert, AlertText, Modal, ModalBackdrop, Fab } from "@gluestack-ui/themed";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import BackFAB from './ButtonBack';
-import firebase from "./config/FIREBASE";
+import firebase from "./config/FIREBASE/index";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from 'expo-router';
 

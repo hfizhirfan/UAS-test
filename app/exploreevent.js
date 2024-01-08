@@ -7,6 +7,7 @@ import firebase from "./config/FIREBASE";
 
 const Explore = () => {
   const [events, setEvents] = useState([]);
+  console.log(events)
 
   useEffect(() => {
     fetchData();
@@ -34,7 +35,7 @@ const Explore = () => {
     return (
       <TouchableOpacity
         onPress={() =>
-          router.push({pathname:"/event-detail", params:{id:item.id}})
+          router.push({pathname:"/news-detail", params:{id:item.id, link:item.button, content:item.content, date:item.date, fee:item.fee, image:item.image, location:item.location, procurement:item.procurement, time:item.time, title:item.title}})
         }
         activeOpacity={0.5}
       >
