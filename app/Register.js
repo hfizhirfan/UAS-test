@@ -22,6 +22,7 @@ const Register = () => {
   };
 
   const onRegister = async () => { firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
+    saveUserDatabase(nama,nim,userCredential);
     saveUserData(email, password,nama, nim);
   }).catch((error) => {
     console.error(error);
@@ -30,11 +31,20 @@ const Register = () => {
     const userData = { email, password,name, credential };
     try {
       await AsyncStorage.setItem("user-data", JSON.stringify(userData));
-      router.replace('/welcome');
+      
     } catch (error) {
       console.error(error);
     }
   }
+  };
+  const saveUserDatabase = (Nama,Nim,credential) =>{
+    const data = {
+        Nama: Nama,
+        Nim: Nim
+    };
+    const uid = credential.user.uid;
+    firebase.database().ref("User/"+uid).push(data);
+    router.replace('/welcome');
 };
 
 
